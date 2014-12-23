@@ -12,6 +12,18 @@ The gem uses the autocomplete library from [Bootstrap-3-Typeahead](https://githu
 
 # Install
 
+## Gemfile
+
+```ruby
+
+gem 'simple_form'
+gem 'bootstrap3_autocomplete_input'
+
+```
+
+It assumes that you have Bootstrap 3 in your application. For example, you can use the [bootstrap-sass gem](https://github.com/twbs/bootstrap-sass).
+
+
 ## Javascript
 
 run :install
