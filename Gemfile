@@ -15,15 +15,15 @@ gemspec
 
 gem 'rails', '4.1.8'
 
-gem 'therubyracer', platforms: :ruby
+#gem 'therubyracer', platforms: :ruby
 
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'bootstrap-sass', '~> 3.3.1'
 gem 'sass-rails', '>= 3.2'
+gem 'bootstrap-sass', '~> 3.3.1'
 #gem 'coffee-rails', '~> 3.2.2'
-#gem 'uglifier', '>= 1.2.4'
+gem 'uglifier', '>= 1.2.4'
 
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin]

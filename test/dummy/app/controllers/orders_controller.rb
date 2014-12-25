@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   autocomplete :client, :name
-  #autocomplete :client_name, :column_name=>'fullname'
 
   # GET /orders
   def index
