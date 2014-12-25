@@ -32,14 +32,14 @@ gem 'bootstrap-sass', '~> 3.3.1'
 
 ## Javascript
 
-Include two js files (bootstrap3-typeahead.min, bootstrap3-typeahead-input.min) in your assets file 'app/assets/javascripts/application.js' after 'bootstrap.js'.
+Include two js files (bootstrap3-typeahead.min, bootstrap3-autocomplete-input.min) in your assets file 'app/assets/javascripts/application.js' after 'bootstrap.js'.
 
 ```bash
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap3-typeahead.min
-//= require bootstrap3-typeahead-input.min
+//= require bootstrap3-autocomplete-input.min
 
 ```
 
@@ -124,7 +124,7 @@ use :autocomplete input type for the client's field in 'app/views/orders/_form.h
 
 # Controller
 
-The gem has method :autocomplete to generate an action in your controller:
+The gem has method "autocomplete" to generate an action in your controller:
 
 ```ruby
 class OrdersController < ApplicationController
