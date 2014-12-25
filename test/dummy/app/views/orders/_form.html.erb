@@ -1,0 +1,50 @@
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= text_field_tag :notes %>
+  <br>
+  <%= text_field_tag :client %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<br><br>
+<h2>Simple form:</h2>
+<%= simple_form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :notes  %>
+  <br>
+
+  <%= f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_orders_url, :items => 2, :minLength=>1 %>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+

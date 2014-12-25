@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+﻿source "https://rubygems.org"
 
 # Declare your gem's dependencies in bootstrap3_autocomplete_input.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
@@ -12,3 +12,19 @@ gemspec
 
 # To use debugger
 # gem 'debugger'
+
+gem 'rails', '4.1.8'
+
+gem 'therubyracer', platforms: :ruby
+
+
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'sass-rails', '>= 3.2'
+#gem 'coffee-rails', '~> 3.2.2'
+#gem 'uglifier', '>= 1.2.4'
+
+
+gem 'tzinfo-data', platforms: [:mingw, :mswin]
+
