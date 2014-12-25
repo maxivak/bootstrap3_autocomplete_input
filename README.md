@@ -15,7 +15,6 @@ The gem uses the autocomplete library from [Bootstrap-3-Typeahead](https://githu
 ## Gemfile
 
 ```ruby
-
 gem 'simple_form'
 gem 'bootstrap3_autocomplete_input'
 
@@ -23,27 +22,24 @@ gem 'bootstrap3_autocomplete_input'
 
 It assumes that you have Bootstrap 3 in your application. For example, you can use the [bootstrap-sass gem](https://github.com/twbs/bootstrap-sass).
 
+```ruby
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'sass-rails', '>= 3.2'
+gem 'bootstrap-sass', '~> 3.3.1'
+```
+
 
 ## Javascript
 
-run :install
-
-```bash
-run :install
-```
-
-This will copy js files 'bootstrap3-typeahead.min.js', 'bootstrap3-typeahead-input.min.js' to your assets.
-
-
-include js files in your assets file 'app/assets/javascripts/application.js' after 'bootstrap.js'.
+Include two js files (bootstrap3-typeahead.min, bootstrap3-typeahead-input.min) in your assets file 'app/assets/javascripts/application.js' after 'bootstrap.js'.
 
 ```bash
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap
 //= require bootstrap3-typeahead.min
-//= require bootstrap3-typeahead-input
+//= require bootstrap3-typeahead-input.min
 
 ```
 
@@ -53,7 +49,7 @@ include js files in your assets file 'app/assets/javascripts/application.js' aft
 All CSS for autocomplete input is already contained in Bootstrap 3 CSS.
   
 
-For example, if you use bootstrap-sass, your css files 'app/assets/stylesheets/application.css.scss' might be
+For example, if you use bootstrap-sass, your css files 'app/assets/stylesheets/application.css.scss' might be like
 
 ```bash  
 @import "bootstrap-sprockets";
@@ -128,29 +124,28 @@ use :autocomplete input type for the client's field in 'app/views/orders/_form.h
 
 # Controller
 
-Use in a controller:
+The gem has method :autocomplete to generate an action in your controller:
 
+```ruby
+class OrdersController < ApplicationController
 
-This will add new action ''
+  autocomplete :client, :name
+  
+  
+  
+```  
+This will add new action 'autocomplete_client_name' where :client is the model class name and :name is the field name in the  model. The action uses params[:q] for the searching term and queries the database.
 
-
-It returns data in JSON format:
+The action returns data in JSON format:
 ```text
 [["id1", "name1"], ["id2", "name2"], ..]
 ```
 which is an array of ids and titles.
 
-Add a new route:
-
-autocomplete_client_name_orders_url
 
 
 
-
-
-
-
-# Options
+# Options for input
 
 
 ## Data source
