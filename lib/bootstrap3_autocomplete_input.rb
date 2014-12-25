@@ -1,0 +1,2 @@
+module Bootstrap3AutocompleteInput
+end

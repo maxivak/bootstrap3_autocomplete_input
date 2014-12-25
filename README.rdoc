@@ -1,0 +1,3 @@
+= Bootstrap3AutocompleteInput
+
+This project rocks and uses MIT-LICENSE.
