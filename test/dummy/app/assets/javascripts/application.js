@@ -14,5 +14,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require bootstrap3-typeahead
-//= require bootstrap3-autocomplete-input
+//= require bootstrap3-typeahead.min
+//= require bootstrap3-autocomplete-input.min
