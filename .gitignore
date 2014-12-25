@@ -1,3 +1,9 @@
+.DS_Store
+.idea/
+.vagrant/
+public/
+*.swp
+.vagrant/machines/default/virtualbox/id
 .bundle/
 log/*.log
 pkg/
