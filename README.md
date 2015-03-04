@@ -103,6 +103,23 @@ end
     
 ```
 
+
+## model
+
+specify what to display as a value in a text field:
+
+```ruby
+class Client < ActiveRecord::Base
+	belongs_to :order
+
+	def to_s
+		name
+	end
+end
+
+
+```
+
 ## view
 
 ### simple_form
