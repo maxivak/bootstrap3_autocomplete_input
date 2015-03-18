@@ -147,9 +147,7 @@ The gem has method "autocomplete" to generate an action in your controller:
 class OrdersController < ApplicationController
 
   autocomplete :client, :name
-  
-  
-  
+
 ```  
 This will add new action 'autocomplete_client_name' where :client is the model class name and :name is the field name in the  model. The action uses params[:q] for the searching term and queries the database.
 
@@ -160,9 +158,70 @@ The action returns data in JSON format:
 which is an array of ids and titles.
 
 
+## Options for controller method
+
+```ruby
+class OrdersController < ApplicationController
+
+  autocomplete :client, :name, { options_hash_here }
+
+```  
+
+
+### class_name
+
+
+### column_name
+
+```ruby
+class OrdersController < ApplicationController
+
+  autocomplete :client, :name, { :column_name => 'title_long' }
+
+```  
+
+It will search in this column in database.
+
+
+### display_value
+
+```ruby
+class OrdersController < ApplicationController
+
+  autocomplete :client, :name, { :display_value => 'fullname' }
+  ...
+end
+
+
+# model
+
+class Client < ActiveRecord::Base
+
+  def fullname
+    firstname+' '+lastname
+  end
+end
+
+```  
+
+It will display search results using this method.
+
+
+
+
+
 
 
 # Options for input
+
+specify options:
+
+```ruby
+= simple_form_for @order do |f|
+
+  = f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_orders_url, :option_name => opt_value, :option_name2=>value2
+
+```
 
 
 ## Data source
@@ -239,18 +298,8 @@ autocomplete="off">
 ```
 
 
-## Input options
 
-specify options:
-
-```ruby
-= simple_form_for @order do |f|
-
-  = f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_orders_url, :option_name => opt_value, :option_name2=>value2
-
-```
-
-### :items
+## :items
 
 The max number of items to display in the dropdown. Default is 8.
 ```ruby
@@ -262,7 +311,7 @@ The max number of items to display in the dropdown. Default is 8.
 
 
 
-### :minLength
+## :minLength
 The minimum character length needed before triggering autocomplete suggestions. You can set it to 0 so suggestion are shown even when there is no text when lookup function is called. Default is 1.
 
 
@@ -278,7 +327,7 @@ The minimum character length needed before triggering autocomplete suggestions. 
 View the full list of options at https://github.com/bassjobsen/Bootstrap-3-Typeahead. Note that not all options from that list are supported by the current gem.
 
 
-### afterSelect
+## afterSelect
 
 The callback function to be execute after an item is selected.
 
@@ -299,6 +348,7 @@ The callback function to be execute after an item is selected.
 
 
 ```
+
 
 
 
