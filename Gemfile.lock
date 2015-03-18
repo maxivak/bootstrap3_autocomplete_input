@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     bootstrap3_autocomplete_input (0.0.5)
-      rails (~> 4.1)
 
 GEM
   remote: https://rubygems.org/
