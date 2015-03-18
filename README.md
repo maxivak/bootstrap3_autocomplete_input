@@ -188,7 +188,7 @@ It will search in this column in database.
 ```ruby
 class OrdersController < ApplicationController
 
-  autocomplete :client, :name, { :display_value => 'fullname' }
+  autocomplete :client, :name, { :display_value => 'fullname', :full_model=>true }
   ...
 end
 
@@ -197,19 +197,20 @@ end
 
 class Client < ActiveRecord::Base
 
-  def fullname
-    firstname+' '+lastname
+  def name_with_birthdate
+    firstname+', '+birthdate
   end
 end
 
 ```  
 
-It will display search results using this method.
+It will display search results using this method. You must set option :full_model=>true if you search by one column but you want to display value from other columns.
 
+```ruby
+# JSON data returned by the controller
+[[1, 'Mark Twen, 1980'], [2, 'John Deer, 1985'], ..]
 
-
-
-
+```
 
 
 # Options for input
@@ -377,6 +378,30 @@ Do not use this if you have a big number of items for client.
 
 Data will loaded from the server every time you type a new string in the field.
 
+
+## Search by name, display full name in search result
+
+```ruby
+class OrdersController < ApplicationController
+
+  autocomplete :client, :name, { :display_value => 'name_with_birthdate', :full_model=>true }
+  ...
+end
+
+
+# model
+
+class Client < ActiveRecord::Base
+
+  def name_with_birthdate
+    firstname+', '+birthdate
+  end
+end
+
+
+
+
+```
 
 
 # Tests
