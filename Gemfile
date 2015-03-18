@@ -15,6 +15,9 @@ gemspec
 
 gem 'rails', '4.1.8'
 
+gem 'sqlite3'
+#gem 'mysql2'
+
 #gem 'therubyracer', platforms: :ruby
 
 

@@ -54,6 +54,7 @@ class AutocompleteInput < SimpleForm::Inputs::TextInput
     # data options
     new_options["data-items"] = options[:items] || 8
     new_options["data-min-length"] = options[:minLength] || 1
+    new_options["data-afterSelect"] = options[:afterSelect] || false
 
     input_html_options.merge new_options
   end

@@ -38,7 +38,7 @@
   <%= f.input :notes  %>
   <br>
 
-  <%= f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_orders_url, :items => 2, :minLength=>1 %>
+  <%= f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_orders_url, :items => 2, :minLength=>1, :afterSelect=>'after_select_client' %>
 
 
   <div class="actions">
@@ -48,3 +48,10 @@
 
 
 
+<script>
+  function after_select_client(item){
+    console.log('item is selected');
+    console.log(item);
+
+  }
+</script>

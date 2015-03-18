@@ -261,6 +261,28 @@ The minimum character length needed before triggering autocomplete suggestions. 
 View the full list of options at https://github.com/bassjobsen/Bootstrap-3-Typeahead. Note that not all options from that list are supported by the current gem.
 
 
+### afterSelect
+
+The callback function to be execute after an item is selected.
+
+```ruby
+= simple_form_for @order do |f|
+
+  = f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_orders_url, :minLength=>3, :afterSelect=>'after_select_client'
+
+
+
+
+:javascript
+  function after_select_client(item){
+    console.log('item is selected');
+    console.log(item);
+
+  }
+
+
+```
+
 
 
 # Examples

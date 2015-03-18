@@ -22,6 +22,6 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 4.1"
 
   #
-  s.add_development_dependency "sqlite3", '~> 0'
+  s.add_development_dependency "sqlite3"
   s.add_development_dependency 'simple_form','~>3.1'
 end
