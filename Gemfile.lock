@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bootstrap3_autocomplete_input (0.0.5)
+    bootstrap3_autocomplete_input (0.1.0)
 
 GEM
   remote: https://rubygems.org/
