@@ -1,4 +1,4 @@
-class AutocompleteInput < SimpleForm::Inputs::TextInput
+﻿class AutocompleteInput < SimpleForm::Inputs::TextInput
   #enable :placeholder, :maxlength
 
   def input(wrapper_options = nil)
@@ -16,12 +16,16 @@ class AutocompleteInput < SimpleForm::Inputs::TextInput
 
       hidden_options = {}
       hidden_options[:id] = hidden_id
+      hidden_options[:input_html] ||= {}
 
       # value
-      value_method = hidden_options[:id]
+      value_method = "#{attribute_name}_id"
       if object.respond_to?(value_method)
-        hidden_options[:value] = object.send(value_method)
+         v = object.send(value_method)
+      elsif new_html_options.has_key?(:value)
+        v = new_html_options[:value]
       end
+      hidden_options[:value] = v unless v.nil?
 
       out << @builder.hidden_field(hidden_name, hidden_options)
     end
@@ -55,6 +59,10 @@ class AutocompleteInput < SimpleForm::Inputs::TextInput
     new_options["data-items"] = options[:items] || 8
     new_options["data-min-length"] = options[:minLength] || 1
     new_options["data-afterSelect"] = options[:afterSelect] || false
+
+    # value
+    new_options[:value] = options[:value_text] || ''
+
 
     input_html_options.merge new_options
   end
