@@ -16,7 +16,6 @@
 
       hidden_options = {}
       hidden_options[:id] = hidden_id
-      hidden_options[:input_html] ||= {}
 
       # value
       value_method = "#{attribute_name}_id"
