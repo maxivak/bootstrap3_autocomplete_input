@@ -57,7 +57,8 @@ module Bootstrap3AutocompleteInput
       #
       def items_to_json(items, method)
         items.collect do |item|
-          [item.id.to_s, item.send(method)]
+          v = item.send(method)
+          [item.id.to_s, v.to_s]
         end
       end
     end
