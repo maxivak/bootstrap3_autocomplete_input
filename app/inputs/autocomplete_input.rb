@@ -60,7 +60,7 @@
     new_options["data-afterSelect"] = options[:afterSelect] || false
 
     # value
-    new_options[:value] = options[:value_text] || ''
+    new_options[:value] = options[:value_text] unless options[:value_text].nil?
 
 
     input_html_options.merge new_options
