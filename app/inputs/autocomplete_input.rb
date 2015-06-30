@@ -19,10 +19,10 @@
 
       # value
       value_method = "#{attribute_name}_id"
-      if object.respond_to?(value_method)
-         v = object.send(value_method)
-      elsif new_html_options.has_key?(:value)
+      if new_html_options.has_key?(:value)
         v = new_html_options[:value]
+      elsif object.respond_to?(value_method)
+        v = object.send(value_method)
       end
       hidden_options[:value] = v unless v.nil?
 
@@ -30,6 +30,8 @@
     end
 
     #
+    new_html_options[:value] = options[:value_text] unless options[:value_text].blank?
+
     out << @builder.text_field(attribute_name, new_html_options)
     out
   end
@@ -60,7 +62,8 @@
     new_options["data-afterSelect"] = options[:afterSelect] || false
 
     # value
-    new_options[:value] = options[:value_text] unless options[:value_text].nil?
+    new_options[:value] = options[:value] unless options[:value].nil?
+    new_options[:value_text] = options[:value_text] || ''
 
 
     input_html_options.merge new_options
