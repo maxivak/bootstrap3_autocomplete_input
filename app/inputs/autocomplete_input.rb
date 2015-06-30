@@ -30,7 +30,7 @@
     end
 
     #
-    new_html_options[:value] = options[:value_text] unless options[:value_text].blank?
+    new_html_options[:value] = options[:value_text] unless options[:value_text].nil?
 
     out << @builder.text_field(attribute_name, new_html_options)
     out
@@ -63,7 +63,7 @@
 
     # value
     new_options[:value] = options[:value] unless options[:value].nil?
-    new_options[:value_text] = options[:value_text] || ''
+    new_options[:value_text] = options[:value_text] unless options[:value_text].nil?
 
 
     input_html_options.merge new_options
