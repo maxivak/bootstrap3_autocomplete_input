@@ -35,7 +35,7 @@ gem 'bootstrap-sass', '~> 3.3.1'
 Include two js files (bootstrap3-typeahead.min, bootstrap3-autocomplete-input.min) in your assets file 'app/assets/javascripts/application.js' after 'bootstrap.js'.
 
 ```bash
-//= require jquery
+//= require jquery2
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap3-typeahead.min
