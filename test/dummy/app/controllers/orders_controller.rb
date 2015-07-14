@@ -2,6 +2,8 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   autocomplete :client, :name
+  #autocomplete :client, :name, ({ column_name: 'name', display_value: 'name', full_model: true })
+
 
   # GET /orders
   def index

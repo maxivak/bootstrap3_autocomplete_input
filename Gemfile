@@ -13,7 +13,7 @@ gemspec
 # To use debugger
 # gem 'debugger'
 
-gem 'rails', '4.1.8'
+gem 'rails', '4.2.1'
 
 gem 'sqlite3'
 #gem 'mysql2'
@@ -21,10 +21,13 @@ gem 'sqlite3'
 #gem 'therubyracer', platforms: :ruby
 
 
+# good
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'sass-rails', '>= 3.2'
 gem 'bootstrap-sass', '~> 3.3.1'
+
+
 #gem 'coffee-rails', '~> 3.2.2'
 gem 'uglifier', '>= 1.2.4'
 

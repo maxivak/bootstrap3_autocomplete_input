@@ -11,8 +11,8 @@
 // about supported directives.
 //
 
-//= require jquery
+//= require jquery2
 //= require jquery_ujs
 //= require bootstrap
-//= require bootstrap3-typeahead.min
+//= require bootstrap3-typeahead
 //= require bootstrap3-autocomplete-input.min

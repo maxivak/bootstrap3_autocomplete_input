@@ -36,7 +36,8 @@ module Bootstrap3AutocompleteInput
               items = get_autocomplete_items(:model => model, :options => options, :q => '', :method => method)
             end
 
-            render :json => items_to_json(items, options[:display_value] ||= method)
+            data = items_to_json(items, options[:display_value] ||= method)
+            render :json => data.to_json
           end
         end
       end

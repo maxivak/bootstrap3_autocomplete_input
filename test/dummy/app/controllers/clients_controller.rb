@@ -1,6 +1,13 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
 
+  autocomplete :client, :name
+
+  def temp_autocomplete_client_name
+    a = [["123","First"],["456","Second"], ["3", "Third"]]
+    render :json => a.to_json
+  end
+
   # GET /clients
   def index
     @clients = Client.all

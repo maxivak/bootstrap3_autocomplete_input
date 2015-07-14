@@ -3,7 +3,12 @@ Rails.application.routes.draw do
     get :autocomplete_client_name, :on => :collection
   end
 
-  resources :clients
+  resources :clients do
+    get :autocomplete_client_name, :on => :collection
+  end
+
+  #get 'autocomplete_client_client_name'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
