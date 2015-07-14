@@ -35,7 +35,7 @@ gem 'bootstrap-sass', '~> 3.3.1'
 Include two js files (bootstrap3-typeahead.min, bootstrap3-autocomplete-input.min) in your assets file 'app/assets/javascripts/application.js' after 'bootstrap.js'.
 
 ```bash
-//= require jquery
+//= require jquery2
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap3-typeahead.min
@@ -83,7 +83,7 @@ We will add autocomplete input to order's form for editing its client.
 ## controller
 
 ```ruby
-class OrdersController < ApplicationController
+class ClientsController < ApplicationController
    autocomplete :client, :name
    ...
 end
@@ -97,11 +97,13 @@ This will generate the controller method 'autocomplete_client_name' that returns
 Add routes for the generated controller action:
 
 ```ruby
-resources :orders do
+resources :clients do
   get :autocomplete_client_name, :on => :collection
 end
     
 ```
+
+This will generate route with name `autocomplete_client_name_clients` which can be accesedby path autocomplete_client_name_clients_path.
 
 
 ## model
@@ -132,7 +134,7 @@ use :autocomplete input type for the client's field in 'app/views/orders/_form.h
 
     = f.input :field1
     
-    = f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_orders_url
+    = f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_clients_url
 
     = f.button :submit, 'Save', :class=> 'btn-primary'
 ```
@@ -144,7 +146,7 @@ use :autocomplete input type for the client's field in 'app/views/orders/_form.h
 The gem has method "autocomplete" to generate an action in your controller:
 
 ```ruby
-class OrdersController < ApplicationController
+class ClientsController < ApplicationController
 
   autocomplete :client, :name
 
@@ -161,7 +163,7 @@ which is an array of ids and titles.
 ## Options for controller method
 
 ```ruby
-class OrdersController < ApplicationController
+class ClientsController < ApplicationController
 
   autocomplete :client, :name, { options_hash_here }
 
@@ -174,7 +176,7 @@ class OrdersController < ApplicationController
 ### column_name
 
 ```ruby
-class OrdersController < ApplicationController
+class ClientsController < ApplicationController
 
   autocomplete :client, :name, { :column_name => 'title_long' }
 
@@ -186,7 +188,7 @@ It will search in this column in database.
 ### display_value
 
 ```ruby
-class OrdersController < ApplicationController
+class ClientsController < ApplicationController
 
   autocomplete :client, :name, { :display_value => 'fullname', :full_model=>true }
   ...
@@ -220,7 +222,7 @@ specify options:
 ```ruby
 = simple_form_for @order do |f|
 
-  = f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_orders_url, :option_name => opt_value, :option_name2=>value2
+  = f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_clients_url, :option_name => opt_value, :option_name2=>value2
 
 ```
 
@@ -236,9 +238,9 @@ You have several options to get data for search:
 examples:
 ```ruby
 
-  = f.input :client, :as => :autocomplete, :source => autocomplete_client_name_orders_url
+  = f.input :client, :as => :autocomplete, :source => autocomplete_client_name_clients_url
   
-  = f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_orders_url
+  = f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_clients_url
   
   = f.input :client, :as => :autocomplete, :source_array => ['item1', 'item2', ..]
 ```
@@ -252,7 +254,7 @@ Autocomplete input adds a hidden field to use the id of the selected item.
 Unless you use local array as data source (:source_array), the hidden field for the id is added automatically.
 
 ```ruby
-  = f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_orders_url
+  = f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_clients_url
 ```
 
 This will generate HTML like
@@ -261,7 +263,7 @@ This will generate HTML like
 
 <input id="order_client" name="order[client]"
 class="autocomplete optional" type="text" value="*some value*" 
-data-source-query="http://localhost:3000/orders/autocomplete_client_name" data-provide="typeahead" data-field-id="order_client_id" 
+data-source-query="http://localhost:3000/clients/autocomplete_client_name" data-provide="typeahead" data-field-id="order_client_id" 
 autocomplete="off">
 
 ```
@@ -285,14 +287,14 @@ client: 'client name',
 If you don't want to have a hidden field for object id, set :field_id option to false:
 
 ```ruby
-  = f.input :client, :as => :autocomplete, :source => autocomplete_client_name_orders_url, :field_id=>false
+  = f.input :client, :as => :autocomplete, :source => autocomplete_client_name_clients_url, :field_id=>false
 ```
 
 This will generate HTML without a hidden field:
 ```html
 <input id="order_client" name="order[client]"
 class="autocomplete optional" type="text" value="*value*" 
-data-source="http://localhost:3000/orders/autocomplete_client_name" 
+data-source="http://localhost:3000/clients/autocomplete_client_name" 
 data-provide="typeahead" 
 autocomplete="off">
 
@@ -306,7 +308,7 @@ The max number of items to display in the dropdown. Default is 8.
 ```ruby
 = simple_form_for @order do |f|
 
-  = f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_orders_url, :items => 2
+  = f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_clients_url, :items => 2
 
 ```
 
@@ -319,7 +321,7 @@ The minimum character length needed before triggering autocomplete suggestions. 
 ```ruby
 = simple_form_for @order do |f|
 
-  = f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_orders_url, :minLength=>3
+  = f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_clients_url, :minLength=>3
 
 ```
 
@@ -335,7 +337,7 @@ The callback function to be execute after an item is selected.
 ```ruby
 = simple_form_for @order do |f|
 
-  = f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_orders_url, :minLength=>3, :afterSelect=>'after_select_client'
+  = f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_clients_url, :minLength=>3, :afterSelect=>'after_select_client'
 
 
 
@@ -361,7 +363,7 @@ The callback function to be execute after an item is selected.
 = simple_form_for @order, html: { autocomplete: 'off' } do |f|
   -#.. other fields..
   
-  = f.input :client, :as => :autocomplete, :source => autocomplete_client_name_orders_url
+  = f.input :client, :as => :autocomplete, :source => autocomplete_client_name_clients_url
   
 ```
 
@@ -373,7 +375,7 @@ Do not use this if you have a big number of items for client.
 
 
 ```ruby
-= f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_orders_url
+= f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_clients_url
 ```
 
 Data will loaded from the server every time you type a new string in the field.
@@ -382,7 +384,7 @@ Data will loaded from the server every time you type a new string in the field.
 ## Search by name, display full name in search result
 
 ```ruby
-class OrdersController < ApplicationController
+class ClientsController < ApplicationController
 
   autocomplete :client, :name, { :display_value => 'name_with_birthdate', :full_model=>true }
   ...
