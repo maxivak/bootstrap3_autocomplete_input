@@ -39,7 +39,8 @@
   <br>
 
   <%#= f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_orders_url, :items => 2, :minLength=>1, :afterSelect=>'after_select_client' %>
-  <%= f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_clients_url %>
+  <%#= f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_clients_url %>
+  <%= f.input :client, :as => :autocomplete, :source_query => autocomplete_client_name_clients_url, :field_id=>false %>
 
 
   <div class="actions">

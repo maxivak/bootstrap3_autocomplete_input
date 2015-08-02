@@ -20,6 +20,7 @@ gem 'sqlite3'
 
 #gem 'therubyracer', platforms: :ruby
 
+gem 'turbolinks'
 
 # good
 gem 'jquery-rails'

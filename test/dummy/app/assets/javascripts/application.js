@@ -16,3 +16,4 @@
 //= require bootstrap
 //= require bootstrap3-typeahead
 //= require bootstrap3-autocomplete-input.min
+//= require turbolinks
