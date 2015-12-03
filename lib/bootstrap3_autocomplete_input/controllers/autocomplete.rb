@@ -31,7 +31,7 @@ module Bootstrap3AutocompleteInput
 
             if q && q.present?
               items = get_autocomplete_items(:model => model, :options => options, :q => q, :method => method)
-            elsif params[:q].nil?
+            elsif params[:q].blank?
               # return ALL
               items = get_autocomplete_items(:model => model, :options => options, :q => '', :method => method)
             end
