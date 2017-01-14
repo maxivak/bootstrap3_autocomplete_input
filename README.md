@@ -2,14 +2,13 @@ bootstrap_autocomplete_input
 =============================
 
 Autocomplete/typeahead input ready to be used with Bootstrap 4 in Rails 5.
- 
-For bootstrap 3 and Rails 4 - see [bootstrap3_autocomplete_input gem](https://github.com/maxivak/bootstrap3_autocomplete_input).  
 
-Works with [SimpleForm](https://github.com/plataformatec/simple_form).
+For Bootstrap 3 and Rails 4 - see [bootstrap3_autocomplete_input gem](https://github.com/maxivak/bootstrap3_autocomplete_input).  
 
-Adds an input with autocomplete/typeahead compatible with Bootstrap 4.
-
-The gem uses the autocomplete library from [Bootstrap-3-Typeahead](https://github.com/bassjobsen/Bootstrap-3-Typeahead) that works with Bootstrap 3. With Twitter Bootstrap 3 the typeahead plugin had been dropped in favor to [Twitter's' typeahead.js](https://github.com/twitter/typeahead.js/) library. Twitter's typeahead doesn't work with Bootstrap 3 directly. For using autocomplete with jQuery autocomplete library in Rails 4, see the gem [rails4-autocomplete]( https://github.com/peterwillcn/rails4-autocomplete).
+Features:
+* Adds an input with autocomplete/typeahead compatible with Bootstrap 4.
+* Works with [SimpleForm](https://github.com/plataformatec/simple_form).
+* Uses the autocomplete library from [Bootstrap-3-Typeahead](https://github.com/bassjobsen/Bootstrap-3-Typeahead) that works with Bootstrap 4. 
 
 
 # Install
@@ -34,14 +33,14 @@ gem 'bootstrap-sass', '~> 3.3.1'
 
 ## Javascript
 
-Include two js files (bootstrap3-typeahead.min, bootstrap3-autocomplete-input.min) in your assets file 'app/assets/javascripts/application.js' after 'bootstrap.js'.
+Include two js files (bootstrap3-typeahead.min, bootstrap-autocomplete-input.min) in your assets file 'app/assets/javascripts/application.js' after 'bootstrap.js'.
 
 ```bash
 //= require jquery2
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap3-typeahead.min
-//= require bootstrap3-autocomplete-input.min
+//= require bootstrap-autocomplete-input.min
 
 ```
 
@@ -53,8 +52,7 @@ All CSS for autocomplete input is already contained in Bootstrap 3 CSS.
 
 For example, if you use bootstrap-sass, your css files 'app/assets/stylesheets/application.css.scss' might be like
 
-```bash  
-@import "bootstrap-sprockets";
+```  
 @import "bootstrap";
 ```
 
