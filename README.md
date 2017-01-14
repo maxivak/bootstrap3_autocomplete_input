@@ -1,11 +1,13 @@
-bootstrap3_autocomplete_input
+bootstrap_autocomplete_input
 =============================
 
-Autocomplete/typeahead input ready to be used with Bootstrap 3 in Rails 4. 
+Autocomplete/typeahead input ready to be used with Bootstrap 4 in Rails 5.
+ 
+For bootstrap 3 and Rails 4 - see [bootstrap3_autocomplete_input gem](https://github.com/maxivak/bootstrap3_autocomplete_input).  
 
 Works with [SimpleForm](https://github.com/plataformatec/simple_form).
 
-Adds an input with autocomplete/typeahead compatible with Bootstrap 3.
+Adds an input with autocomplete/typeahead compatible with Bootstrap 4.
 
 The gem uses the autocomplete library from [Bootstrap-3-Typeahead](https://github.com/bassjobsen/Bootstrap-3-Typeahead) that works with Bootstrap 3. With Twitter Bootstrap 3 the typeahead plugin had been dropped in favor to [Twitter's' typeahead.js](https://github.com/twitter/typeahead.js/) library. Twitter's typeahead doesn't work with Bootstrap 3 directly. For using autocomplete with jQuery autocomplete library in Rails 4, see the gem [rails4-autocomplete]( https://github.com/peterwillcn/rails4-autocomplete).
 
@@ -16,7 +18,7 @@ The gem uses the autocomplete library from [Bootstrap-3-Typeahead](https://githu
 
 ```ruby
 gem 'simple_form'
-gem 'bootstrap3_autocomplete_input'
+gem 'bootstrap_autocomplete_input', branch: 'bootstrap4'
 
 ```
 

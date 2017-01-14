@@ -1,4 +1,4 @@
-module Bootstrap3AutocompleteInput
+module BootstrapAutocompleteInput
   module Orm
     module ActiveRecord
       def get_autocomplete_order(column_name, options, model=nil)

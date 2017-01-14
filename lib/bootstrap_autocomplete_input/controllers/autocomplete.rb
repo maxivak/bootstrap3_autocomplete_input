@@ -1,18 +1,18 @@
 #require 'orm/active_record'
 
-module Bootstrap3AutocompleteInput
+module BootstrapAutocompleteInput
   module Controllers
 
     module Autocomplete
       def self.included(target)
-        target.extend Bootstrap3AutocompleteInput::Controllers::Autocomplete::ClassMethods
+        target.extend BootstrapAutocompleteInput::Controllers::Autocomplete::ClassMethods
 
         if defined?(Mongoid::Document)
-          target.send :include, Bootstrap3AutocompleteInput::Orm::Mongoid
+          target.send :include, BootstrapAutocompleteInput::Orm::Mongoid
         elsif defined?(MongoMapper::Document)
-          target.send :include, Bootstrap3AutocompleteInput::Orm::MongoMapper
+          target.send :include, BootstrapAutocompleteInput::Orm::MongoMapper
         else
-          target.send :include, Bootstrap3AutocompleteInput::Orm::ActiveRecord
+          target.send :include, BootstrapAutocompleteInput::Orm::ActiveRecord
         end
       end
 

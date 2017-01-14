@@ -73,6 +73,6 @@ end
 # add input to simple_form inputs
 #SimpleForm::Inputs::Base.send(:include, SimpleForm::Inputs::AutocompleteInput)
 SimpleForm::Inputs::Base.send(:include, AutocompleteInput)
-#SimpleForm::Inputs::Base.send(:include, Bootstrap3AutocompleteInput::AutocompleteInput)
+#SimpleForm::Inputs::Base.send(:include, BootstrapAutocompleteInput::AutocompleteInput)
 
 =end

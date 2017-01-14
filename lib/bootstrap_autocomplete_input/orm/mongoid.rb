@@ -1,4 +1,4 @@
-module Bootstrap3AutocompleteInput
+module BootstrapAutocompleteInput
   module Orm
     module Mongoid
       def get_autocomplete_order(method, options, model=nil)

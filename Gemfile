@@ -1,6 +1,6 @@
 ﻿source "https://rubygems.org"
 
-# Declare your gem's dependencies in bootstrap3_autocomplete_input.gemspec.
+# Declare your gem's dependencies in bootstrap_autocomplete_input.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.
 gemspec
@@ -13,8 +13,12 @@ gemspec
 # To use debugger
 # gem 'debugger'
 
-gem 'rails', '4.2.1'
+gem 'rails', '5.0.1'
 
+# Use Puma as the app server
+gem 'puma', '~> 3.0'
+
+#
 gem 'sqlite3'
 #gem 'mysql2'
 
@@ -23,15 +27,19 @@ gem 'sqlite3'
 gem 'turbolinks'
 
 # good
-gem 'jquery-rails'
+gem 'jquery-rails', '~>4.2.2'
 gem 'jquery-ui-rails'
-gem 'sass-rails', '>= 3.2'
-gem 'bootstrap-sass', '~> 3.3.1'
-
-
+gem 'sass-rails', '5.0.6'
 #gem 'coffee-rails', '~> 3.2.2'
-gem 'uglifier', '>= 1.2.4'
+gem 'uglifier', '>= 1.3.0'
 
+#gem 'bootstrap-sass', '~> 3.3.1'
+# bootstrap v4 alpha
+gem 'bootstrap', '~> 4.0.0.alpha6'
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin]
+source 'http://insecure.rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+end
 
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

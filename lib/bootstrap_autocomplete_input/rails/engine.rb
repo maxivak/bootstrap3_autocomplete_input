@@ -1,7 +1,7 @@
-module Bootstrap3AutocompleteInput
+module BootstrapAutocompleteInput
   module Rails
     class Engine < ::Rails::Engine
-      #isolate_namespace Bootstrap3AutocompleteInput
+      #isolate_namespace BootstrapAutocompleteInput
 
       #config.to_prepare do
       #  Dir.glob(Rails.root + "app/decorators/**/*_decorator*.rb").each do |c|

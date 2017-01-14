@@ -1,4 +1,4 @@
-module Bootstrap3AutocompleteInput
+module BootstrapAutocompleteInput
 	module Orm
 		module MongoMapper
 			def get_autocomplete_order(method, options, model=nil)
