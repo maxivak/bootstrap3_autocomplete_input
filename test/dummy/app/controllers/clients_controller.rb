@@ -1,7 +1,8 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
 
-  autocomplete :client, :name
+  #autocomplete :client, :name
+  autocomplete :client, :name, {extra_columns: ['id', 'name'], display_id: 'id', display_value: 'name'}
 
   def temp_autocomplete_client_name
     a = [["123","First"],["456","Second"], ["3", "Third"]]

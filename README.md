@@ -173,6 +173,7 @@ class ClientsController < ApplicationController
 ### class_name
 
 
+
 ### column_name
 
 ```ruby
@@ -184,6 +185,21 @@ class ClientsController < ApplicationController
 
 It will search in this column in database.
 
+### extra_columns
+
+```
+class ClientsController < ApplicationController
+
+  autocomplete :client, :name, { extra_columns: [:lastname, :birthdate], column_name: 'fullname' }
+
+```
+
+
+### display_id
+
+* Method used for getting ID of the record. 
+* Make sure that columns this method depends on are included in :extra_columns option.
+
 
 ### display_value
 
@@ -193,6 +209,11 @@ class ClientsController < ApplicationController
   autocomplete :client, :name, { :display_value => 'fullname', :full_model=>true }
   ...
 end
+```
+
+### where
+
+* additional WHERE conditions
 
 
 # model

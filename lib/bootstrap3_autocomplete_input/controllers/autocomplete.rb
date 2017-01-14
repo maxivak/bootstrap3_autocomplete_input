@@ -21,22 +21,25 @@ module Bootstrap3AutocompleteInput
 
         def autocomplete(object, method, options = {})
           define_method("autocomplete_#{object}_#{method}") do
-
-            method = options[:column_name] if options.has_key?(:column_name)
-
-            q = params[:q]
-
+            # model
             class_name = options[:class_name] || object
             model = get_object(class_name)
 
-            if q && q.present?
-              items = get_autocomplete_items(:model => model, :options => options, :q => q, :method => method)
-            elsif params[:q].nil?
-              # return ALL
-              items = get_autocomplete_items(:model => model, :options => options, :q => '', :method => method)
-            end
+            term = '' # return ALL
+            q = params[:q]
+            q = '' if q.nil?
 
-            data = items_to_json(items, options[:display_value] ||= method)
+            #
+            items = get_autocomplete_items(:model => model, :method=>method, :options => options, :q => q)
+
+            #
+            method_display_value = options[:display_value] if options.has_key?(:display_value)
+            method_display_value ||= method
+
+            method_display_id = options[:display_id] if options.has_key?(:display_id)
+            method_display_id ||= model.primary_key
+
+            data = items_to_json(items, method_display_id, method_display_value)
             render :json => data.to_json
           end
         end
@@ -56,10 +59,12 @@ module Bootstrap3AutocompleteInput
       #
       # Returns an array of [id, name]
       #
-      def items_to_json(items, method)
+      def items_to_json(items, method_display_id, method_display_value)
         items.collect do |item|
-          v = item.send(method)
-          [item.id.to_s, v.to_s]
+          v = item.send(method_display_value)
+          id = item.send(method_display_id)
+
+          [id.to_s, v.to_s]
         end
       end
     end

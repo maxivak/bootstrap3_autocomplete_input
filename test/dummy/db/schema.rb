@@ -13,13 +13,13 @@
 
 ActiveRecord::Schema.define(version: 20141224032000) do
 
-  create_table "clients", force: true do |t|
+  create_table "clients", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "orders", force: true do |t|
+  create_table "orders", force: :cascade do |t|
     t.string   "notes"
     t.string   "product_name"
     t.datetime "created_at"
