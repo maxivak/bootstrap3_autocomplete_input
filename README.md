@@ -3,7 +3,7 @@ bootstrap3_autocomplete_input
 
 Autocomplete/typeahead input ready to be used with Bootstrap 3 in Rails 4. 
 
-For Bootstrap 4 and Rails 5 - use gem [(bootstrap 4 autocomplete input](https://github.com/maxivak/boostrap_autocomplete_input.
+For Bootstrap 4 and Rails 5 - use gem [bootstrap 4 autocomplete input](https://github.com/maxivak/boostrap_autocomplete_input.
 
 Features:
 * Works with [SimpleForm](https://github.com/plataformatec/simple_form).
