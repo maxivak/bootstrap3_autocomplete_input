@@ -223,7 +223,7 @@ Additional WHERE conditions
 ```
 autocomplete :client, :name, { :scopes => [:w_usa, :w_active]}
 
-# defined scopes in model
+# define scopes in model
 class Client < ActiveRecord::Base
   ...
   # scopes
