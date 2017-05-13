@@ -213,14 +213,56 @@ class ClientsController < ApplicationController
 end
 ```
 
-### where
 
-* additional WHERE conditions
 
-Add additional filter using :where option
+### where, where_method
+
+Additional WHERE conditions
+
+* Add additional filter using :scopes option
+```
+autocomplete :client, :name, { :scopes => [:w_usa, :w_active]}
+
+# defined scopes in model
+class Client < ActiveRecord::Base
+  ...
+  # scopes
+  scope :w_usa, -> { where(region_id: 1) }
+  scope :w_active, -> { where(active: true) }
+  
+end
+
+```
+
+
+* Add additional filter using :where option with search condition
 ```
 autocomplete :client, :name, { :where => 'region_id=1' }
 ```
+
+* For dynamic search conditions use :where_method option
+```
+class ClientsController < ApplicationController
+    autocomplete :client, :name, { :where_method => :w_region }
+    
+    ...
+    
+    def w_region
+        # get value from params
+        v = params[:region_id]
+        
+        if v
+           return "region_id=#{v}"
+        end
+         
+        nil 
+    end
+end    
+    
+```
+
+
+
 
 
 # model
