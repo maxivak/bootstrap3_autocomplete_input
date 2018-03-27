@@ -34,14 +34,26 @@ gem 'bootstrap-sass', '~> 3.3.1'
 
 ## Javascript
 
-Include two js files (bootstrap3-typeahead.min, bootstrap3-autocomplete-input.min) in your assets file 'app/assets/javascripts/application.js' after 'bootstrap.js'.
+Include js files (bootstrap3-typeahead.min, bootstrap3-autocomplete-input.min) in your assets file 'app/assets/javascripts/application.js' after 'bootstrap.js'.
 
-```bash
+```
 //= require jquery2
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap3-typeahead.min
-//= require bootstrap3-autocomplete-input.min
+//= require bootstrap3-autocomplete-input
+//= require bootstrap3-autocomplete-input-init
+
+```
+
+for Turbolinks:
+```
+//= require jquery2
+//= require jquery_ujs
+//= require bootstrap
+//= require bootstrap3-typeahead.min
+//= require bootstrap3-autocomplete-input
+//= require bootstrap3-autocomplete-input-init-turbolinks
 
 ```
 

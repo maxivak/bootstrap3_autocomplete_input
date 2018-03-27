@@ -15,5 +15,11 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap3-typeahead
-//= require bootstrap3-autocomplete-input.min
+//= require bootstrap3-autocomplete-input
+
+// no Turbolinks
+// require bootstrap3-autocomplete-input-init
+
+// with Turbolinks
 //= require turbolinks
+//= require bootstrap3-autocomplete-input-init-turbolinks
